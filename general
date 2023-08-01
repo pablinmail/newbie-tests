@@ -1,0 +1,89 @@
+index.html
+
+<head><link rel="stylesheet" href="main.css"></head>
+<!-- ----------------------------------------------------------------------- -->
+<div class="slider">
+    <ul>
+        <li class="img-1"><img src="../imagenes_index/poster_pelis/birdBox.png" alt=""></li>
+        <li class="img-2"><img src="../imagenes_index/poster_pelis/caballeroZodiaco.png" alt=""></li>
+        <li class="img-3"><img src="../imagenes_index/poster_pelis/momia.png" alt=""></li>
+        <li class="img-4"><img src="../imagenes_index/poster_pelis/nocebo.png" alt=""></li>
+        <li class="img-5"><img src="../imagenes_index/poster_pelis/titanic.png" alt=""></li>
+        <li class="img-1"><img src="../imagenes_index/poster_pelis/birdBox.png" alt=""></li>
+    </ul>
+</div>
+
+<script src="javascript.js"></script>
+
+<!-- ==================================================================== -->
+jacascript.js
+
+
+const ul = document.querySelector('ul')
+
+function desplazamiento(elemento, posicion, ms){
+    setTimeout(() => {
+        elemento.style.transform = `translateX(-${posicion}px)`;
+    }, ms);
+}
+
+
+function ciclo(){
+    let desp = 0;
+    let ms = 0;
+    for(let i = 0; i<5; i++){
+        console.log(i)
+        if(i === 4){
+            desp = 0;
+            desplazamiento(ul, desp, ms);
+        }
+        else{
+            desplazamiento(ul, desp, ms);
+            desp += 210;
+            ms += 3000;
+        }
+    }
+}
+
+setInterval(() => {
+    ciclo()    
+}, 12000);
+
+
+<!-- ==================================================================== -->
+main.css
+
+*{box-sizing: border-box; margin: 0;}
+body{background-color: rgb(50, 50, 50); color: white; }
+
+.slider{
+    padding: 0;
+    margin: 0;
+    background-color: red;
+    width: 640px;
+    /* height: 320px; */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+ul{
+    background-color: green;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    height: 300px;
+    transition: all 1s linear;
+}
+
+li{
+    background-color: yellow;
+    margin-left: 10px;
+    margin-bottom: 0;
+}
+
+
+
+
+
